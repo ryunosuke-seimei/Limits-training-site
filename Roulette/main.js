@@ -93,7 +93,7 @@ let app = new Vue({
   },
   created:function(){
     let self = this;
-    axios.get("http://127.0.0.1:5000/rin_jin/item-api",{
+    axios.get("https://reina-raft.xyz/rin_jin/item-api",{
       params: {
         flag: 2,
       }
