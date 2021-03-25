@@ -26,7 +26,7 @@ new Vue({
       console.log(this.box_open_flag);
     },
     clickLink: function(index){
-      console.log(this.links[index].link);
+      location.href = this.links[index].link;
     }
   },
 });
