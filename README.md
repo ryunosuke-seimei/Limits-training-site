@@ -9,3 +9,6 @@ https://github.com/ryunosuke-seimei/fuchi/tree/develop)
 
 ## develop
 ファイル構造の変更　Vue-routerを使用してVueFileを構築する
+
+## vuexの利点
+vuexの状態保存　⇨　コンポーネントを超えてグローバルなデータを保存したいシーンで使用する○

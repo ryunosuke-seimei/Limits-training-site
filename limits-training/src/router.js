@@ -16,15 +16,15 @@ const router = new VueRouter({
       component: Title
     },
     {
-        path:"/item",
-        component: Item
-      },
-      {
-        path:"/roulette",
-        component: Roulette
-      }
+      path:"/item",
+      component: Item
+    },
+    {
+      path:"/roulette",
+      component: Roulette
+    }
   ],
-  base: ""
+  base: "/limits-training"
 })
 
 export default router
