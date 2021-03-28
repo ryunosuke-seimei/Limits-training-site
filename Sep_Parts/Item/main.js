@@ -1,10 +1,10 @@
 new Vue({
   el:"#header",
   data:{
-    title: "title",
+    title: "LIMITS Training",
     links:[
-      {id: 0, title: "links1", link:"A_ link"},
-      {id: 1, title: "links2", link:"B_ link"}
+      {id: 0, title: "ITEM", link:"https://reina-raft.xyz/limits-training/Item/"},
+      {id: 1, title: "ROULETTE", link:"https://reina-raft.xyz/limits-training/Roulette/"}
     ],
     pc_or_mobile_show: true,
     box_open_flag: false,
@@ -26,7 +26,8 @@ new Vue({
       console.log(this.box_open_flag);
     },
     clickLink: function(index){
-      console.log(this.links[index].link);
+      // console.log(this.links[index].link);
+      location.href = this.links[index].link;
     }
   },
 })
@@ -48,7 +49,7 @@ new Vue({
       {id:9,value:"10"},
     ],
     submit: "送信",
-    link: "http://127.0.0.1:5000/rin_jin/item-api",
+    link: "https://reina-raft.xyz/rin_jin/item-api",
 
   },
   methods:{
@@ -94,7 +95,7 @@ new Vue({
     ],
     edit_value: "編集",
     delete_value: "削除",
-    link: "http://127.0.0.1:5000/rin_jin/item-api",
+    link: "https://reina-raft.xyz/rin_jin/item-api",
     data_list:[],
     show_flag:false,
   },

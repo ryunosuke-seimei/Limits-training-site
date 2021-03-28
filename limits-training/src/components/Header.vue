@@ -1,7 +1,62 @@
-*{
-  margin: 0;
-  padding: 0;
+<template>
+    <header id="header">
+        <div class="title">
+            <router-link to="/">{{title}}</router-link>
+        </div>
+        <div class="sub-links" v-show="pc_or_mobile_show">
+            <router-link to="/item">item</router-link>
+            <router-link to="/roulette">roulette</router-link>
+        </div>
+        <div class="sub-box" v-show="!pc_or_mobile_show" v-on:click="clickSubBox" v-bind:class="{ box_active: box_open_flag}">
+        <li></li>
+        <li></li>
+        <li></li>
+        </div>
+        <div class="sub-bords" v-show="!pc_or_mobile_show" v-bind:class="{ bords_active: box_open_flag}">
+            <router-link to="/item">item</router-link>
+            <router-link to="/roulette">roulette</router-link>
+        </div>
+    </header>
+</template>
+
+<script>
+export default {
+    name: 'Header',
+    components: {
+    },
+    data(){
+        return{
+            pc_or_mobile_show: true,
+            box_open_flag: false,
+        }
+    },
+    computed:{
+        title(){
+            return this.$store.state.title
+        }
+    },
+    mounted:function(){
+        window.addEventListener('resize', this.resizeEventCalculate);
+        this.resizeEventCalculate();
+    },
+    destroyed: function () {
+        window.removeEventListener('resize', this.resizeEventCalculate);
+    },
+    methods:{
+        resizeEventCalculate: function(){
+            let flag = window.innerWidth > 500 ? true : false;
+            this.pc_or_mobile_show = flag;
+        },
+        clickSubBox: function(){
+            this.box_open_flag = !this.box_open_flag;
+            console.log(this.box_open_flag);
+        }
+    }
+
 }
+</script>
+
+<style>
 header{
   position: relative;
   display: inline-flex;
@@ -104,95 +159,4 @@ header .sub-box li{
 .bords_active{
   left: 0;
 }
-
-
-section{
-  display: inline-flex;
-  flex-direction: row;
-  width: 100%;
-  height: calc(100vh - 60px);
-
-  /* background-color: khaki; */
-  background-color: rgba(240, 230, 140, 0.5);
-}
-
-section #left{
-  display: inline-flex;
-  flex-direction: column;
-
-  align-items: center;
-  width: 40%;
-  height: 100%;
-}
-
-section #right{
-  display: inline-flex;
-  flex-direction: row;
-  width: 60%;
-  height: 100%;
-
-  background-color: rgba(240, 230, 140, 0.5);
-}
-section #right .left{
-  display: inline-flex;
-  flex-direction: column;
-  width: 34%;
-  height: 100%;
-  overflow-y: scroll;
-
-  box-sizing: content-box;
-  border-top: none;
-  border-bottom: none;
-}
-section #right .left li{
-  display: inline-flex;
-  margin: 10px 10%;
-  width: 80%;
-  height: 60px;
-
-  flex: 0 0 auto;
-
-  border-radius: 10px;;
-
-  box-sizing: border-box;
-  padding-left: 5px;
-
-  background-color: rgba(255, 199, 175, 0.8);
-  box-shadow: 1px 1px 1px rgba(255, 255, 175, 0.8);
-  align-items: center;
-}
-
-section #right .right{
-  width: 66%;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  background-color: rgba(240, 230, 140, 0.5);
-
-}
-
-section input{
-  display: inline-flex;
-  width: 300px;
-  height: 40px;
-  margin: 10px 0;
-
-  box-sizing: border-box;
-  padding-left: 5px;
-
-  box-shadow: 1px 1px 1px black;
-  background-color: rgba(255, 220, 180, 0.8);
-
-  border-radius: 10px;;
-
-  border: none;
-  outline: none;
-
-}
-section input[type="button"]{
-  justify-content: center;
-  align-items: center;
-  border:none;
-  background-color: rgba(255, 199, 175, 0.8);
-}
+</style>
