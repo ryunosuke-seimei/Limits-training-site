@@ -5,7 +5,7 @@ LIMITS training siteのフロントエンド版
 
 API側はFlaskにて実行中
 [Flask sample](
-https://github.com/ryunosuke-seimei/fuchi/tree/develop)
+https://github.com/ryunosuke-seimei/fuchi)
 
 ## develop
 ファイル構造の変更　Vue-routerを使用してVueFileを構築する
